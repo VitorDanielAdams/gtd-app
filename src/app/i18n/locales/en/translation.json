@@ -1,0 +1,18 @@
+{
+  "title": {
+    "whats_on_your_mind": "What's on your mind?"
+  },
+  "menu": {
+    "inbox": "Inbox",
+    "projects": "Projects",
+    "contexts": "Contexts",
+    "review": "Review",
+    "more": "More"
+  },
+  "screens": {
+    "inbox": {
+      "title": "Inbox",
+      "add_task": "Add Task"
+    }
+  }
+} 
