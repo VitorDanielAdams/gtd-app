@@ -48,22 +48,29 @@ npx expo start
 - Pressione `i` para abrir no iOS (apenas em macOS)
 - Escaneie o QR Code com o app Expo Go (disponível na [Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent) e [App Store](https://apps.apple.com/app/apple-store/id982107779))
 
-## 📁 Estrutura do Projeto
+## 📐 Arquitetura do Aplicativo
 
-```
-src/
-├── presentation/
-│   ├── navigation/
-│   │   └── MenuBottomTabs/
-│   │       └── MenuBottomTabs.tsx
-│   │
-│   ├── screens/
-│   │   └── Inbox/
-│   │       └── InboxScreen.tsx
-│   └── components/
-├── domain/
-└── data/
-```
+O aplicativo GTD é construído seguindo os princípios da Arquitetura Limpa (Clean Architecture), o que garante uma separação clara de responsabilidades, testabilidade e manutenibilidade. A arquitetura é dividida em quatro camadas principais:
+
+### Camada de Apresentação (Presentation Layer)
+Responsável pela interface do usuário (UI) e pela interação com o Redux para gerenciamento de estado.
+- **Exemplos**: `InboxScreen`, Navegação, `taskSlice`
+
+### Camada de Domínio (Domain Layer)
+Contém a lógica de negócio central e as regras da aplicação. É independente de qualquer framework ou banco de dados.
+- **Exemplos**: `AddTaskUseCase`, `Task`
+
+### Camada de Dados (Data Layer)
+Implementa os repositórios definidos na camada de domínio. Lida com a persistência e recuperação de dados.
+- **Exemplos**: `TaskRepository`, `ProjectRepository`
+
+### Camada de Infraestrutura (Infrastructure Layer)
+Gerencia a implementação de detalhes técnicos, como Realm (banco de dados), serviços externos e utilitários.
+- **Exemplos**: `RealmDataSource`, `notificationService`
+
+Aqui está um diagrama visual da arquitetura:
+
+![Clean Architecture for GTD App](assets/clean-architecture.png)
 
 ## 🛠️ Configuração do Ambiente
 

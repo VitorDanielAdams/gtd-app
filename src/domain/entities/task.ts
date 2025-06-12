@@ -1,5 +1,6 @@
 export interface Task {
   id: string;
   text: string;
-  type: string;
+  createdAt: Date;
+  deletedAt?: Date | null;
 } 
