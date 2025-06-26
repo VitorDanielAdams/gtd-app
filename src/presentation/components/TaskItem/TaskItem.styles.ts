@@ -11,10 +11,20 @@ export const TaskContainer = styled.View`
   border-radius: 8px;
 `;
 
+export const TaskInfo = styled.View`
+  flex: 1;
+  margin-right: 10px;
+`;
+
 export const TaskText = styled.Text`
   color: ${({ theme }: { theme: Theme }) => theme.colors.text};
   font-size: 16px;
-  flex: 1;
+  margin-bottom: 4px;
+`;
+
+export const TaskDate = styled.Text`
+  color: ${({ theme }: { theme: Theme }) => theme.colors.textSecondary};
+  font-size: 12px;
 `;
 
 export const IconButton = styled.TouchableOpacity`

@@ -2,6 +2,7 @@ import { Task } from '@/infrastructure/datasources/realm/models/Task';
 import { realm } from '@/infrastructure/datasources/realm/realmConfig';
 import { ITaskRepository } from '@/domain/repositories/ITaskRepository';
 import { Task as DomainTask } from '@/domain/entities/task';
+import Realm from 'realm';
 
 export class TaskRepository implements ITaskRepository {
   getAllTasks(): DomainTask[] {
@@ -25,7 +26,7 @@ export class TaskRepository implements ITaskRepository {
   addTask(task: DomainTask) {
     realm.write(() => {
       realm.create<Task>('Task', {
-        id: task.id,
+        id: new Realm.BSON.ObjectId(),
         text: task.text,
         createdAt: task.createdAt,
         deletedAt: task.deletedAt || null,
@@ -33,7 +34,7 @@ export class TaskRepository implements ITaskRepository {
     });
   }
 
-  softDeleteTask(id: string) {
+  softDeleteTask(id: Realm.BSON.ObjectId) {
     const task = realm.objectForPrimaryKey<Task>('Task', id);
     if (task) {
       realm.write(() => {

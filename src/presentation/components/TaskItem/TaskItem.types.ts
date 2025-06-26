@@ -1,6 +1,6 @@
-import { Task } from "@/domain/entities/task";
+import { TaskState } from '@/shared/types/task';
 
 export interface TaskItemProps {
-  item: Task;
+  item: TaskState;
   onDelete: (id: string) => void;
 } 

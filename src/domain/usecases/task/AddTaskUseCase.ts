@@ -1,5 +1,5 @@
 import { ITaskRepository } from '@/domain/repositories/ITaskRepository';
-import { v4 as uuid } from 'uuid';
+import { BSON } from 'realm';
 
 export class AddTaskUseCase {
   constructor(private repo: ITaskRepository) {}
@@ -9,7 +9,6 @@ export class AddTaskUseCase {
       throw new Error('Texto da tarefa é obrigatório');
     }
     this.repo.addTask({
-      id: uuid(),
       text,
       createdAt: new Date(),
       deletedAt: null,

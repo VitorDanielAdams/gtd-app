@@ -5,12 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/infrastructure/redux/store';
 import { addTask, softDeleteTask } from '@/infrastructure/redux/slices/tasksSlice';
-import { Task } from "@/domain/entities/task";
+import { TaskState } from '@/shared/types/task';
 import {
   InputContainer,
   TaskInput,
   TaskList,
-  EmptyStateText,
 } from "./InboxScreen.styles";
 import ScreenTitle from "../../components/common/ScreenTitle/ScreenTitle";
 
@@ -33,7 +32,7 @@ const InboxScreen = () => {
 
   return (
     <ScreenContainer>
-      <ScreenTitle title={t('screens.inbox.title')} />
+      <ScreenTitle title={t('menu.inbox')} />
       <InputContainer>
         <TaskInput
           placeholder={t('title.whats_on_your_mind')}
@@ -44,20 +43,17 @@ const InboxScreen = () => {
         />
       </InputContainer>
 
-      {tasks.length === 0 ? (
-        <EmptyStateText>{t('screens.inbox.empty_state')}</EmptyStateText>
-      ) : (
-        <TaskList
-          data={tasks}
-          keyExtractor={(item: Task) => item.id}
-          renderItem={({ item }: { item: Task }) => (
-            <TaskItem
-              item={item}
-              onDelete={() => handleDeleteTask(item.id)}
-            />
-          )}
-        />
-      )}
+      <TaskList
+        data={tasks}
+        keyExtractor={(item: TaskState) => item.id}
+        renderItem={({ item }: { item: TaskState }) => (
+          <TaskItem
+            item={item}
+            onDelete={() => handleDeleteTask(item.id)}
+          />
+        )}
+      />
+      
     </ScreenContainer>
   );
 };

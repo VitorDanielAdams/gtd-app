@@ -1,14 +1,14 @@
 import Realm from 'realm';
 
 export class Task extends Realm.Object<Task> {
-  id!: string;
+  id!: Realm.BSON.ObjectId;
   text!: string;
   createdAt!: Date;
   deletedAt?: Date | null;
 
   static generate(text: string, type: string) {
     return {
-      id: new Realm.BSON.ObjectId().toHexString(),
+      id: new Realm.BSON.ObjectId(),
       text,
       createdAt: new Date(),
       deletedAt: null,
@@ -19,7 +19,7 @@ export class Task extends Realm.Object<Task> {
     name: 'Task',
     primaryKey: 'id',
     properties: {
-      id: 'string',
+      id: 'objectId',
       text: 'string',
       createdAt: 'date',
       deletedAt: 'date?',

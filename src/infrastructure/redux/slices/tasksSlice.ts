@@ -2,13 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TaskRepository } from '@/data/repositories/TaskRepository';
 import { AddTaskUseCase } from '@/domain/usecases/task/AddTaskUseCase';
 import { Task as DomainTask } from '@/domain/entities/task';
-
-interface TaskState {
-  id: string;
-  text: string;
-  createdAt: Date;
-  deletedAt?: Date | null;
-}
+import { TaskState } from '@/shared/types/task';
+import Realm from 'realm';
 
 interface TasksState {
   items: TaskState[];
@@ -19,10 +14,10 @@ const usecase = new AddTaskUseCase(repo);
 
 const initialState: TasksState = {
   items: repo.getUndeletedTasks().map((task: DomainTask) => ({
-    id: task.id,
+    id: task.id.toHexString(),
     text: task.text,
-    createdAt: task.createdAt,
-    deletedAt: task.deletedAt,
+    createdAt: task.createdAt.toISOString(),
+    deletedAt: task.deletedAt?.toISOString() || null,
   })),
 };
 
@@ -33,14 +28,15 @@ const tasksSlice = createSlice({
     addTask: (state, action: PayloadAction<{ text: string, type?: string }>) => {
       usecase.execute(action.payload.text, action.payload.type);
       state.items = repo.getUndeletedTasks().map((task: DomainTask) => ({
-        id: task.id,
+        id: task.id.toHexString(),
         text: task.text,
-        createdAt: task.createdAt,
-        deletedAt: task.deletedAt,
+        createdAt: task.createdAt.toISOString(),
+        deletedAt: task.deletedAt?.toISOString() || null,
       }));
     },
     softDeleteTask: (state, action: PayloadAction<string>) => {
-      repo.softDeleteTask(action.payload);
+      const objectId = new Realm.BSON.ObjectId(action.payload);
+      repo.softDeleteTask(objectId);
       state.items = state.items.filter(task => task.id !== action.payload);
     },
   },
