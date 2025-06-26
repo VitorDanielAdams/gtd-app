@@ -8,5 +8,9 @@
     "contexts": "Contextos",
     "review": "Revisar",
     "more": "Mais"
+  },
+  "languages": {
+    "pt": "Português",
+    "en": "Inglês"
   }
 } 

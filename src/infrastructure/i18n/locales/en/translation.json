@@ -8,5 +8,9 @@
     "contexts": "Contexts",
     "review": "Review",
     "more": "More"
+  },
+  "languages": {
+    "pt": "Portuguese",
+    "en": "English"
   }
 } 

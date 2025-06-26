@@ -44,7 +44,7 @@ const InboxScreen = () => {
       </InputContainer>
 
       <TaskList
-        data={tasks}
+        data={tasks.toReversed()}
         keyExtractor={(item: TaskState) => item.id}
         renderItem={({ item }: { item: TaskState }) => (
           <TaskItem

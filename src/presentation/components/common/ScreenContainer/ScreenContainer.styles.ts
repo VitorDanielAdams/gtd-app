@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Platform, StatusBar } from 'react-native';
 import { Theme } from '@/shared/styles/theme';
 
 export const Container = styled.SafeAreaView`
