@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TaskRepository } from '@/data/repositories/TaskRepository';
 import { AddTaskUseCase } from '@/domain/usecases/task/AddTaskUseCase';
-import { Task as DomainTask } from '@/domain/entities/task';
+import { Task as DomainTask } from '@/domain/entities/Task';
 import { TaskState } from '@/shared/types/task';
 import Realm from 'realm';
 

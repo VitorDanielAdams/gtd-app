@@ -5,13 +5,13 @@ import {
   FolderKanban,
   Inbox,
   Lightbulb,
-  MoreHorizontal,
+  CalendarFold
 } from "lucide-react-native";
 import InboxScreen from "@/presentation/screens/Inbox/InboxScreen";
 import ProjectsScreen from "@/presentation/screens/Projects/ProjectsScreen";
 import ContextsScreen from "@/presentation/screens/Contexts/ContextsScreen";
 import ReviewScreen from "@/presentation/screens/Review/ReviewScreen";
-import MoreScreen from "@/presentation/screens/More/MoreScreen";
+import CalendarScreen from "@/presentation/screens/Calendar/CalendarScreen";
 import { useTranslation } from 'react-i18next';
 import { useAppSelector, useAppDispatch } from '@/infrastructure/redux/hooks';
 import { toggleTheme } from '@/infrastructure/redux/slices/themeSlice';
@@ -46,9 +46,9 @@ const MenuBottomTabs = () => {
         options={{ tabBarIcon: ({ color }) => <FolderKanban color={color} size={20} /> }}
       />
       <Tab.Screen
-        name={t('menu.contexts')}
-        component={ContextsScreen}
-        options={{ tabBarIcon: ({ color }) => <Lightbulb color={color} size={20} /> }}
+        name={t('menu.calendar')}
+        component={CalendarScreen}
+        options={{ tabBarIcon: ({ color }) => <CalendarFold color={color} size={20} /> }}
       />
       <Tab.Screen
         name={t('menu.inbox')}
@@ -63,9 +63,9 @@ const MenuBottomTabs = () => {
         options={{ tabBarIcon: ({ color }) => <Check color={color} size={20} /> }}
       />
       <Tab.Screen
-        name={t('menu.more')}
-        component={MoreScreen}
-        options={{ tabBarIcon: ({ color }) => <MoreHorizontal color={color} size={20} /> }}
+        name={t('menu.contexts')}
+        component={ContextsScreen}
+        options={{ tabBarIcon: ({ color }) => <Lightbulb color={color} size={20} /> }}
       />
     </Tab.Navigator>
   );

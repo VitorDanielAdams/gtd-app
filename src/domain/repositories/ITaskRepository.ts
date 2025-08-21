@@ -1,4 +1,4 @@
-import { Task } from "@/domain/entities/task";
+import { Task } from "@/domain/entities/Task";
 import Realm from 'realm';
 
 export interface ITaskRepository {

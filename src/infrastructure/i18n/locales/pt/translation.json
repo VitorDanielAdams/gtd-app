@@ -7,10 +7,28 @@
     "projects": "Projetos",
     "contexts": "Contextos",
     "review": "Revisar",
-    "more": "Mais"
+    "calendar": "Calendário"
   },
   "languages": {
     "pt": "Português",
     "en": "Inglês"
+  },
+  "project": {
+    "title": "Título",
+    "scheduledAt": "Prazo",
+    "status": "Status",
+    "tasks": "Tarefas",
+    "createdAt": "Criado em",
+    "deletedAt": "Deletado em",
+    "ProjectStatus": {
+      "open": "Aberto",
+      "pending": "Pendente",
+      "inProgress": "A fazer",
+      "completed": "Concluído",
+      "cancelled": "Cancelado",
+      "blocked": "Bloqueado",
+      "archived": "Arquivado"
+    },
+    "empty": "Você ainda não tem nenhum projeto. \n Crie um projeto para começar a organizar suas tarefas."
   }
 } 

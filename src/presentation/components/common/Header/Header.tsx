@@ -31,11 +31,12 @@ export const Header: React.FC<HeaderProps> = ({ onPressProfile }) => {
         <IconButton onPress={handleOpenLanguageModal}>
           <Globe color={theme.colors.text} size={24} />
         </IconButton>
-        {onPressProfile && (
+        {/* {onPressProfile && ( */}
           <IconButton onPress={onPressProfile}>
             <UserRound color={theme.colors.text} size={24} />
           </IconButton>
-        )}
+        {/* )} */}
+
       </RightIconsContainer>
       <LanguageSelector
         visible={languageModalVisible}

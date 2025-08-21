@@ -9,6 +9,7 @@ export class AddTaskUseCase {
       throw new Error('Texto da tarefa é obrigatório');
     }
     this.repo.addTask({
+      id: new BSON.ObjectId(),
       text,
       createdAt: new Date(),
       deletedAt: null,

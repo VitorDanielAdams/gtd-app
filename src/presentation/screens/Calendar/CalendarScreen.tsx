@@ -3,13 +3,13 @@ import { ScreenContainer } from "@/presentation/components/common/ScreenContaine
 import { useTranslation } from 'react-i18next';
 import ScreenTitle from "../../components/common/ScreenTitle/ScreenTitle";
 
-const MoreScreen = () => {
+const CalendarScreen = () => {
   const { t } = useTranslation();
   return (
     <ScreenContainer>
-      <ScreenTitle title={t('menu.more')} />
+      <ScreenTitle title={t('menu.calendar')} />
     </ScreenContainer>
   );
 };
 
-export default MoreScreen;
+export default CalendarScreen;

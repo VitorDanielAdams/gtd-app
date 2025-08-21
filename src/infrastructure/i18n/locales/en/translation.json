@@ -7,10 +7,28 @@
     "projects": "Projects",
     "contexts": "Contexts",
     "review": "Review",
-    "more": "More"
+    "calendar": "Calendar"
   },
   "languages": {
     "pt": "Portuguese",
     "en": "English"
+  },
+  "project": {
+    "title": "Title",
+    "scheduledAt": "Deadline",
+    "status": "Status",
+    "tasks": "Tasks",
+    "createdAt": "Created At",
+    "deletedAt": "Deleted At",
+    "ProjectStatus": {
+      "open": "Open",
+      "pending": "Pending",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "blocked": "Blocked",
+      "archived": "Archived"
+    },
+    "empty": "You don't have any projects yet. \n Create a project to start organizing your tasks."
   }
 } 

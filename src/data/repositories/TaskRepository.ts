@@ -1,7 +1,7 @@
 import { Task } from '@/infrastructure/datasources/realm/models/Task';
 import { realm } from '@/infrastructure/datasources/realm/realmConfig';
 import { ITaskRepository } from '@/domain/repositories/ITaskRepository';
-import { Task as DomainTask } from '@/domain/entities/task';
+import { Task as DomainTask } from '@/domain/entities/Task';
 import Realm from 'realm';
 
 export class TaskRepository implements ITaskRepository {
