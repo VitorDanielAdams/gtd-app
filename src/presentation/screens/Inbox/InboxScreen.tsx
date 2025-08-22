@@ -12,6 +12,7 @@ import {
   TaskList,
 } from "./InboxScreen.styles";
 import ScreenTitle from "../../components/common/ScreenTitle/ScreenTitle";
+import { EmptyResult } from "@/presentation/components/common/EmptyResult";
 
 const InboxScreen = () => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ const InboxScreen = () => {
       <ScreenTitle title={t('menu.inbox')} />
       <InputContainer>
         <TaskInput
-          placeholder={t('title.whats_on_your_mind')}
+          placeholder={t('inbox.title.whats_on_your_mind')}
           placeholderTextColor="#888"
           value={taskText}
           onChangeText={setTaskText}
@@ -43,16 +44,24 @@ const InboxScreen = () => {
         />
       </InputContainer>
 
-      <TaskList
-        data={tasks.toReversed()}
-        keyExtractor={(item: TaskState) => item.id}
-        renderItem={({ item }: { item: TaskState }) => (
-          <TaskItem
-            item={item}
-            onDelete={() => handleDeleteTask(item.id)}
-          />
-        )}
-      />
+      {tasks === null || tasks.length === 0 ? (
+        <EmptyResult
+          translationKey="inbox.empty"
+          defaultText="You don't have any tasks yet"
+          icon="stickyNote"
+        />
+      ) : (
+        <TaskList
+          data={tasks.toReversed()}
+          keyExtractor={(item: TaskState) => item.id}
+          renderItem={({ item }: { item: TaskState }) => (
+            <TaskItem
+              item={item}
+              onDelete={() => handleDeleteTask(item.id)}
+            />
+          )}
+        />
+      )} 
       
     </ScreenContainer>
   );

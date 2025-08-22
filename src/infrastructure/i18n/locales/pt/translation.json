@@ -1,7 +1,4 @@
 {
-  "title": {
-    "whats_on_your_mind": "O que está na sua mente?"
-  },
   "menu": {
     "inbox": "Inbox",
     "projects": "Projetos",
@@ -12,6 +9,12 @@
   "languages": {
     "pt": "Português",
     "en": "Inglês"
+  },
+  "inbox": {
+    "title": {
+      "whats_on_your_mind": "O que está na sua mente?"
+    },
+    "empty": "Você ainda não tem nenhuma task."
   },
   "project": {
     "title": "Título",
